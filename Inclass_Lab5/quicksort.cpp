@@ -35,7 +35,7 @@ void quicksort(int arr[], int start, int end){
 
 
 int main(){
-    int array[] = {10, 2, 5, 3, 9, 4, 7, 6, 1};
+    int array[] = {10, 2, 5, 8, 2, 4, 6, 1};
     int arr_length = sizeof(array)/sizeof(array[0]);
     quicksort(array, 0, arr_length-1);
     for (int k=0; k< arr_length; k++){
