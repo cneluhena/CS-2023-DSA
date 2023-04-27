@@ -30,7 +30,7 @@ struct node *insertNode(struct node *node, int key) {
   if (node == NULL) 
     return createNode(key);
   
-  //insert node n=in the correct place
+  //insert node in the correct place
   if (key < node->key) {
     node->left = insertNode(node->left, key);
   } else if (key > node->key) {
