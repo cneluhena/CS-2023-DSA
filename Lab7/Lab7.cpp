@@ -9,18 +9,18 @@ struct node {
 
 //creating a node
 struct node *createNode(int val) {
-   struct node *temp =  (struct node *)malloc(sizeof(struct node));
-   temp->key = val;
-   temp->left = temp->right = NULL;
-   return temp;
+   node* newnode = new node;
+   newnode->key = val;
+   newnode->left = newnode->right = NULL;
+   return newnode;
 }
 
 // Inorder traversal
-void traverseInOrder(struct node *root) {
+void inOrder(struct node *root) {
   if (root != NULL) {
-    traverseInOrder(root->left); //traversing left subtree
+    inOrder(root->left); //traversing left subtree
     cout << root->key << " ";
-    traverseInOrder(root->right); // travsersing right subtree
+    inOrder(root->right); // travsersing right subtree
   }
 }
 
@@ -116,5 +116,5 @@ int main() {
     }
   }
   
-  traverseInOrder(root);
+  inOrder(root);
 }
