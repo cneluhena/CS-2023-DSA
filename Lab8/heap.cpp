@@ -42,8 +42,8 @@ void heapSort(int arr[], int n)
    
    // extracting elements from heap one by one
    for (int i=n-1; i >= 1; i--){
-        swap(arr[0], arr[i]);
-        heapify(arr, i, 0);
+        swap(arr[0], arr[i]); //swapping first and last element of the unsorted array
+        heapify(arr, i, 0); //heapifying the unsorted array
     }
    
 }
@@ -69,7 +69,7 @@ int main()
          break;  //terminate inputing when enter -1
       }
       else if (a < 0){
-         continue;
+         continue;  //not allowing negative numbers
       }
       else{
          input_array.push_back(a);
