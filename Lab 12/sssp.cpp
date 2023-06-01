@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 
@@ -62,11 +63,12 @@ void DijkstraAlgo(int graph[v][v], int src)
         total += distance[k];
     }
     double average = total/(v-1);
-    //cout << "Average Time = " << average << endl;
+    cout << "Average Time = " << average << endl;
     averages.push_back(average);
 }
 
 
+//function to calculate print averages
 void printAverages(vector<float> avg){    
     for (int j=0; j < v; j++){
         cout << "Average Time taken from Node " << j << " is " 
@@ -75,12 +77,12 @@ void printAverages(vector<float> avg){
 }
 
 
+//function to print the best cities to locate hospital
 void printmincity(vector<float> avg){
-    float min = (float)INT_MAX;
-    cout << "The City that have smallest average ";
+    cout << "Best cities to locate hospital are ";
+    float min = *min_element(avg.begin(), avg.end());
     for (int k=0; k < v; k++){
-        if (avg[k] <= min){
-            min = avg[k];
+        if (min == avg[k]){
             cout << k << " ";
         }
     }
@@ -98,16 +100,18 @@ int main(){
     {5, 0, 0, 20, 0, 0}};
 
   
-    
     for (int j=0; j < v; j++){
         DijkstraAlgo(graph, j);
         cout << endl;
 
     }
 
-    // printAverages(averages);
-    // printmincity(averages);
+    printAverages(averages);
+    printmincity(averages);
     
 
     
 }
+
+
+
